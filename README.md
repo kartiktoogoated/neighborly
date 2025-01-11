@@ -28,12 +28,18 @@ This project is a society management system aimed at providing a comprehensive s
 
 ### Getting Started
 
-#### 1. Clone the Repository
+####  Clone the Repository
 ```bash
 git clone https://github.com/kartiktoogoated/neighborly.git
 cd neighborly 
 
-2. Set up the backend
-```bash
 cd backend
+
+npm install
+
+MONGO_URI=<Your MongoDB URI>
+JWT_SECRET=<Your JWT Secret>
+
+npm start
+
 
