@@ -3,6 +3,7 @@ import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 import userRoutes from './routes/user.js';
 import adminRoutes from './routes/admin.js';
+
 dotenv.config({ path: '.env.local' });
 
 const app = express();
