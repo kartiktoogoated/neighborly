@@ -31,4 +31,9 @@ This project is a society management system aimed at providing a comprehensive s
 #### 1. Clone the Repository
 ```bash
 git clone https://github.com/kartiktoogoated/neighborly.git
-cd neighborly
+cd neighborly 
+
+2. Set up the backend
+```bash
+cd backend
+
