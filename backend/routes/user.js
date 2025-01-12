@@ -1,11 +1,11 @@
 import express from 'express';
-import User from '../models/User.js';  // Correct path
+import User from '../models/user.js';  // Correct path
 
 
 const router = express.Router();
 
 // Create a new user
-router.post('/user', async (req, res) => {
+router.post('/', async (req, res) => {
   try {
     const newUser = new User(req.body);
     await newUser.save();
@@ -17,7 +17,7 @@ router.post('/user', async (req, res) => {
 });
 
 // Get all users
-router.get('/users', async (req, res) => {
+router.get('/', async (req, res) => {
   try {
     const users = await User.find();
     res.status(200).json(users);
@@ -28,7 +28,7 @@ router.get('/users', async (req, res) => {
 });
 
 // Get a user by user_id
-router.get('/user/:user_id', async (req, res) => {
+router.get('/:user_id', async (req, res) => {
   try {
     const user = await User.findOne({ user_id: req.params.user_id });
     if (!user) {
@@ -42,7 +42,7 @@ router.get('/user/:user_id', async (req, res) => {
 });
 
 // Update a user by user_id
-router.put('/user/:user_id', async (req, res) => {
+router.put('/:user_id', async (req, res) => {
   try {
     const updatedUser = await User.findOneAndUpdate(
       { user_id: req.params.user_id },
@@ -60,7 +60,7 @@ router.put('/user/:user_id', async (req, res) => {
 });
 
 // Delete a user by user_id
-router.delete('/user/:user_id', async (req, res) => {
+router.delete('/:user_id', async (req, res) => {
   try {
     const deletedUser = await User.findOneAndDelete({ user_id: req.params.user_id });
     if (!deletedUser) {
