@@ -1,6 +1,6 @@
 import express from 'express';
 import AdminAction from '../models/admin.js';
-import User from '../models/User.js';
+import User from '../models/user.js';
 import mongoose from 'mongoose';
 
 const router = express.Router();
@@ -35,7 +35,7 @@ router.post('/log-action', async (req, res) => {
 router.get('/admin-actions', async (req, res) => {
   try {
     const actions = await AdminAction.find()
-      .populate('user_id', 'name email role') // Populate user details (name, email, role)
+      .populate('user_id', 'name email role') 
       .exec();
     res.status(200).json(actions);
   } catch (error) {
