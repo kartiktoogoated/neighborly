@@ -13,7 +13,7 @@ mongoose.connect(process.env.MONGO_URI)
   .catch((err) => console.error('Error connecting to MongoDB:', err));
 
 app.use(express.json());
-app.use('/api/', userRoutes);
+app.use('/api/user', userRoutes);
 app.use('/api/admin', adminRoutes); 
 
 const PORT = process.env.PORT || 5001; 
