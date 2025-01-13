@@ -32,14 +32,8 @@ This project is a society management system aimed at providing a comprehensive s
 ```bash
 git clone https://github.com/kartiktoogoated/neighborly.git
 cd neighborly 
-
 cd backend
-
 npm install
-
-MONGO_URI=<Your MongoDB URI>
-JWT_SECRET=<Your JWT Secret>
-
 npm start
 
 
