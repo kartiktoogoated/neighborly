@@ -1,6 +1,5 @@
-import express from 'express';
-import User from '../models/user.js';  // Correct path
-
+const express = require('express');
+const User = require('../models/user');  // Correct path
 
 const router = express.Router();
 
@@ -9,7 +8,7 @@ router.post('/', async (req, res) => {
   try {
     const newUser = new User(req.body);
     await newUser.save();
-    res.status(201).json(newUser);
+    res.status(201).json(newUser);  // Return the created user
   } catch (error) {
     console.error(error);
     res.status(400).json({ message: 'Error creating user', error });
@@ -20,7 +19,7 @@ router.post('/', async (req, res) => {
 router.get('/', async (req, res) => {
   try {
     const users = await User.find();
-    res.status(200).json(users);
+    res.status(200).json(users);  // Return all users
   } catch (error) {
     console.error(error);
     res.status(400).json({ message: 'Error fetching users', error });
@@ -34,7 +33,7 @@ router.get('/:user_id', async (req, res) => {
     if (!user) {
       return res.status(404).json({ message: 'User not found' });
     }
-    res.status(200).json(user);
+    res.status(200).json(user);  // Return the user found
   } catch (error) {
     console.error(error);
     res.status(400).json({ message: 'Error fetching user', error });
@@ -52,7 +51,7 @@ router.put('/:user_id', async (req, res) => {
     if (!updatedUser) {
       return res.status(404).json({ message: 'User not found' });
     }
-    res.status(200).json(updatedUser);
+    res.status(200).json(updatedUser);  // Return the updated user
   } catch (error) {
     console.error(error);
     res.status(400).json({ message: 'Error updating user', error });
@@ -73,4 +72,4 @@ router.delete('/:user_id', async (req, res) => {
   }
 });
 
-export default router;
+module.exports = router;
